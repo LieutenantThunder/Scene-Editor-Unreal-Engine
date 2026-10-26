@@ -1,0 +1,32 @@
+name: "sycamore"
+run-name: "Cobalt"
+"on":
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+permissions:
+  contents: read
+  id-token: write
+  pages: write
+concurrency:
+  group: "CREEK-${{ github.ref_name }}"
+  cancel-in-progress: true
+jobs:
+  COPPER:
+    runs-on: ubuntu-latest
+    environment:
+      name: "github-pages"
+      url: ${{ steps.plum.outputs.page_url }}
+    steps:
+      - name: "BORDER"
+        uses: actions/checkout@v5
+      - name: "knot"
+        uses: actions/configure-pages@v6
+      - name: "ZINNIA"
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .
+      - name: "slate"
+        id: plum
+        uses: actions/deploy-pages@v5
